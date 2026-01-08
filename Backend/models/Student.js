@@ -1,0 +1,31 @@
+const mongoose = require("mongoose");
+
+const studentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  course: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Course"
+  },
+  marks: [{
+    subject: {
+      type: String,
+      required: true
+    },
+    marks: {
+      type: Number,
+      required: true,
+      min: 0,
+      max: 100
+    }
+  }]
+});
+
+module.exports = mongoose.model("Student", studentSchema);
