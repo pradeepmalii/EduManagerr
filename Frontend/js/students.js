@@ -2,7 +2,8 @@
 // Wrapped to avoid leaking globals and redeclaring API_BASE
 (function () {
   if (typeof window.API_BASE === "undefined") {
-    window.API_BASE = "http://localhost:5000/api";
+    window.API_BASE = "https://edumanagerr-backend.onrender.com/api";
+
   }
   const API_BASE = window.API_BASE;
 
